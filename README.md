@@ -19,6 +19,11 @@ The goal is to create a digital chess experience that feels as tactile and socia
 -   **Testing**: Vitest (Unit), Playwright (E2E)
 -   **Hosting**: GitHub Pages
 
+## Documentation
+- [VISION.md](./VISION.md) - High-level goals and target environment.
+- [MVP_DESIGN.md](./MVP_DESIGN.md) - Technical architecture and user stories.
+- [WORKFLOW.md](./WORKFLOW.md) - **Mandatory** development standards and hard requirements.
+
 ## Workflow & Testing (Hard Requirements)
 Following the standards from our reference repositories (`food`, `chess-clock`):
 
@@ -26,14 +31,14 @@ Following the standards from our reference repositories (`food`, `chess-clock`):
 Every major feature must have a design artifact committed before implementation. See the [MVP Design](./MVP_DESIGN.md) for the initial plan.
 
 ### 2. Testing
--   **Unit Tests**: All core logic must be covered by `vitest`.
--   **E2E Tests**: Critical user journeys must be covered by `playwright`.
--   **CI**: Tests must pass with `CI=1` before merging.
+- **Unit Tests**: All core logic must be covered by `vitest`.
+- **E2E Tests**: Critical user journeys must be covered by `playwright`.
+- **CI**: Tests must pass with `CI=1` before merging.
 
 ### 3. Branches & PRs
--   All work happens in feature branches.
--   Pull Request descriptions must include the **original User Prompt(s)** and any relevant comments verbatim.
+All work must be done in feature branches. Pull Request descriptions **MUST** include the **original User Prompt(s)** verbatim to preserve history and context.
 
+See [WORKFLOW.md](./WORKFLOW.md) for more detailed requirements.
 ## Getting Started
 
 ### Development
