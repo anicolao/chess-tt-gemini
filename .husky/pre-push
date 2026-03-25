@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running full test suite (pre-push)..."
+npm run test && npm run test:e2e

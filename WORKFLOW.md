@@ -17,10 +17,17 @@ All contributors (including AI agents) must adhere to the following workflow whe
 ## 3. Testing Standards
 - **Zero Tolerance for Regression**: All tests must pass before merging.
 - **Unit Testing**: Core logic (e.g., chess rules, timer logic) must be covered by `vitest`.
-- **E2E Testing**: User journeys (e.g., "Player A moves and Player B's clock starts") must be covered by `playwright`.
+- **E2E Testing**: User journeys must be covered by `playwright`. See [E2E_GUIDE.md](./E2E_GUIDE.md) for structural requirements.
+- **Strict Prohibitions**:
+    - **No timeouts > 2000ms**: Any wait condition must resolve within 2 seconds.
+    - **No `waitForTimeout`**: Arbitrary sleep/wait calls are strictly forbidden. Always wait for UI state.
 - **CI Consistency**: Tests must pass with `CI=1` to ensure non-interactive execution.
 
-## 4. Technical Quality
+## 4. Architecture & State Management
+- **Redux & Event Sourcing**: The application MUST use Redux with an Event Sourcing pattern for both game and UI state.
+- **Single Source of Truth**: All state transitions must be driven by actions/events that are recorded and reproducible.
+
+## 5. Technical Quality
 - **Idiomatic Code**: Follow established patterns in the codebase.
 - **Minimal Dependencies**: Use built-in Svelte/SvelteKit features where possible.
 - **Mobile/Touch First**: Since this is a tabletop app, all UI must be designed for touch interaction first.

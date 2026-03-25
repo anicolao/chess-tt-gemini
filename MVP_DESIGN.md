@@ -12,19 +12,18 @@ This document outlines the Minimum Viable Product (MVP) for `chess-tt-gemini`.
 
 ### Tech Stack
 -   **Framework**: SvelteKit (for fast, reactive UI).
--   **State Management**: Svelte Stores (for game state and clock sync).
+-   **State Management**: **Redux (Event Sourcing Pattern)**.
+    - All game moves and UI interactions are stored as an append-only log of events.
+    - The current state is a projection of these events.
 -   **Chess Logic**: `chess.js` (for move validation and game state).
 -   **Rendering**: SVG or HTML/CSS for the board (ensuring sharpness on large screens).
--   **Deployment**: Static Adapter (GitHub Pages) + Service Worker (PWA).
+-   **Deployment**: Static Adapter (GitHub Pages).
 
 ### Component Structure
--   `Board`: The central 8x8 grid.
--   `Piece`: Individual draggable/clickable pieces.
--   `PlayerDashboard`: Mirrored controls (one at the top, one at the bottom) for:
-    -   Chess clock.
-    -   Captured pieces.
-    -   Resign/Draw buttons.
--   `GameController`: Orchestrates turns, timing, and move logging.
+- `Board`: The central 8x8 grid, driven by the current state projection.
+- `Piece`: Individual pieces, dispatching actions to the Redux store.
+- `PlayerDashboard`: Mirrored controls (one at the top, one at the bottom).
+- `GameController`: Coordinates the Event Sourcing flow, persistence, and synchronization.
 
 ## User Stories
 
